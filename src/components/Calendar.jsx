@@ -32,13 +32,6 @@ export default function Calendar() {
 
     Cal("init", { origin: "https://cal.com" });
 
-    // Explicitly trigger the inline embed
-    Cal("inline", {
-      elementOrSelector: "#cal-embed-container",
-      calLink: "madhur-kharade-13yg3x/public",
-      layout: "month_view"
-    });
-
     Cal("ui", { "theme": "dark", "styles": { "branding": { "brandColor": "#000000" } }, "hideEventTypeDetails": false, "layout": "month_view" });
   }, []);
 
@@ -55,8 +48,10 @@ export default function Calendar() {
         >
           {/* Cal.com Embed Container */}
           <div
-            id="cal-embed-container"
-            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+            className="cal-embed"
+            data-cal-link="madhur-kharade-13yg3x/public"
+            data-cal-config='{"layout":"month_view","theme":"dark"}'
+            style={{ width: '100%', height: '100%', minHeight: '700px', overflow: 'hidden' }}
           ></div>
         </motion.div>
 
